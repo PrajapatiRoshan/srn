@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "952284587609",
+    "project_id": "indoor-navigation-application",
+    "storage_bucket": "indoor-navigation-application.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:952284587609:android:57a9a405f892c6d16bf348",
+        "android_client_info": {
+          "package_name": "com.example.srn"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "952284587609-bi3vhoeherdt1mdh67bh8jh1bp5edb7j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBzkfF4hEjBZ7A-XiT_yHc9ySbmSdcWHlg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "952284587609-bi3vhoeherdt1mdh67bh8jh1bp5edb7j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
