@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:srn/Screens/firstPage.dart';
 import 'package:srn/homePage.dart';
 
 class AuthServices {
@@ -19,7 +20,7 @@ class AuthServices {
               email: email.text, password: password.text)
           .then((value) {
         print("User is logged in");
-        Get.to(HomeScreen());
+        Get.to(StartPage());
       });
     } catch (e) {
       showDialog(
@@ -43,7 +44,7 @@ class AuthServices {
           .then((value) {
         print("User is register");
         //Get.to();
-        Get.to(HomeScreen());
+        Get.to(StartPage());
         //Get.off(context);
       });
     } catch (e) {

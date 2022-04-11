@@ -20,30 +20,35 @@ class _loginPage extends State<loginScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: Colors.black,
         appBar: _appBar(),
-        body: SizedBox(
+        body: Container(
           height: Get.height,
           width: Get.width,
+          padding: EdgeInsets.all(20),
           child: Center(
             child: Column(
               children: [
                 _inputFormate(_authServices.email, 'Enter Your e-mail'),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 _inputFormate(_authServices.password, 'Enter Password'),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 _signButton(context),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 InkWell(
                   onTap: () {
                     Get.to(SignUpScreen());
                   },
-                  child: Text('SignUp'),
+                  child: const Text(
+                    'SignUp',
+                    style: TextStyle(fontSize: 20, color: Colors.white),
+                  ),
                 )
               ],
             ),
@@ -63,14 +68,16 @@ class _loginPage extends State<loginScreen> {
       //keyboardType: TextInputType.,
       decoration: InputDecoration(
           hintText: "$text",
+          fillColor: Colors.white,
+          filled: true,
           hintStyle: TextStyle(
-              color: Colors.black.withOpacity(0.3),
-              fontSize: 20,
+              color: Colors.black.withOpacity(0.7),
+              fontSize: 16,
               fontFamily: 'Nato sans'),
           focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.transparent),
+              borderSide: const BorderSide(color: Colors.transparent),
               borderRadius: BorderRadius.circular(20)),
-          enabledBorder: OutlineInputBorder(
+          enabledBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: Colors.transparent))),
     );
   }
@@ -82,18 +89,28 @@ class _loginPage extends State<loginScreen> {
           _authServices.loginUser(context);
         }
       },
-      style: ElevatedButton.styleFrom(),
-      child: Text('SigIn'),
+      style: ButtonStyle(
+          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+            RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(18.0),
+                side: const BorderSide(color: Colors.red)),
+          ),
+          backgroundColor: MaterialStateProperty.all<Color>(Colors.red)),
+      child: const Text('SigIn',
+          style: TextStyle(color: Colors.white, fontSize: 24)),
     );
   }
 }
 
 AppBar _appBar() {
   return AppBar(
-    title: Text(
+    title: const Text(
       "Sign",
-      style: TextStyle(color: Colors.black),
     ),
-    backgroundColor: Colors.amberAccent,
+    elevation: 0,
+    backgroundColor: Colors.black,
+    titleTextStyle: const TextStyle(
+        fontWeight: FontWeight.bold, color: Colors.white, fontSize: 24),
+    titleSpacing: 20,
   );
 }

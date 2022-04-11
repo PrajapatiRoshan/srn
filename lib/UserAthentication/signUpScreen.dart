@@ -21,21 +21,23 @@ class _signUp extends State<SignUpScreen> {
     return SafeArea(
       child: Scaffold(
         appBar: _appBar(),
-        body: SizedBox(
+        backgroundColor: Colors.black,
+        body: Container(
           height: Get.height,
           width: Get.width,
+          padding: EdgeInsets.all(20),
           child: Center(
-            child: Column(
+            child: ListView(
               children: [
-                _inputFormate(_authservice.email, 'Enter Your phone number'),
-                SizedBox(
-                  height: 20,
+                _inputFormate(_authservice.email, 'Enter your e-mail'),
+                const SizedBox(
+                  height: 15,
                 ),
                 _inputFormate(_password, 'Create new Password'),
-                SizedBox(
-                  height: 20,
+                const SizedBox(
+                  height: 15,
                 ),
-                _inputFormate(_confpassword, 'Create Password again'),
+                _inputFormate(_confpassword, 'Enter Password again'),
                 _signUpButton(context),
               ],
             ),
@@ -52,12 +54,14 @@ class _signUp extends State<SignUpScreen> {
       cursorColor: Colors.red,
       controller: _controllername,
       //autofocus: true,
-      //keyboardType: TextInputType.number,
+      keyboardType: TextInputType.emailAddress,
       decoration: InputDecoration(
           hintText: "$text",
+          fillColor: Colors.white,
+          filled: true,
           hintStyle: TextStyle(
-              color: Colors.black.withOpacity(0.3),
-              fontSize: 20,
+              color: Colors.black.withOpacity(0.7),
+              fontSize: 16,
               fontFamily: 'Nato sans'),
           focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(color: Colors.transparent),
@@ -80,8 +84,17 @@ class _signUp extends State<SignUpScreen> {
           }
         }
       },
-      style: ElevatedButton.styleFrom(),
-      child: Text('Create account'),
+      style: ButtonStyle(
+          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+            RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(18.0),
+                side: BorderSide(color: Colors.red)),
+          ),
+          backgroundColor: MaterialStateProperty.all<Color>(Colors.red)),
+      child: Text(
+        'Create account',
+        style: TextStyle(color: Colors.white, fontSize: 24),
+      ),
     );
   }
 
@@ -103,6 +116,10 @@ class _signUp extends State<SignUpScreen> {
 AppBar _appBar() {
   return AppBar(
     title: Text("Create account"),
-    backgroundColor: Colors.amberAccent,
+    elevation: 0,
+    backgroundColor: Colors.black,
+    titleTextStyle: TextStyle(
+        fontWeight: FontWeight.bold, color: Colors.white, fontSize: 24),
+    titleSpacing: 20,
   );
 }
